@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports: ["5672:5672", "15672:15672"]
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: events
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports: ["5432:5432"]
+    volumes:
+      - ./sql/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  clickhouse:
+    image: clickhouse/clickhouse-server
+    environment:
+      CLICKHOUSE_SKIP_USER_SETUP: "1"
+    ports: ["8123:8123", "9000:9000"]
+    volumes:
+      - ./sql/clickhouse/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
