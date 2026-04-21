@@ -1,0 +1,7 @@
+ru\rksp\chechulina\repo\EventRepository.class
+ru\rksp\chechulina\controller\CountController.class
+ru\rksp\chechulina\config\RabbitConfig.class
+ru\rksp\chechulina\dto\EventDto.class
+ru\rksp\chechulina\ProcessorApplication.class
+ru\rksp\chechulina\listener\EventListener.class
+ru\rksp\chechulina\entity\EventEntity.class
